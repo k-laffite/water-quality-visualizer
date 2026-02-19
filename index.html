@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Visualizer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌊 Water Quality Visualizer</h1>
+            <p>Upload CSV data to visualize water quality metrics</p>
+        </header>
+
+        <main>
+            <section class="upload-section">
+                <div class="upload-box">
+                    <input type="file" id="csvFile" accept=".csv" />
+                    <label for="csvFile">
+                        <span>📁 Choose CSV File or Drag & Drop</span>
+                    </label>
+                    <button id="clearBtn" class="btn btn-secondary">Clear Data</button>
+                </div>
+            </section>
+
+            <section class="controls-section" id="controlsSection" style="display: none;">
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="xAxisSelect">X-Axis:</label>
+                        <select id="xAxisSelect"></select>
+                    </div>
+                    <div class="control-group">
+                        <label for="yAxisSelect">Y-Axis:</label>
+                        <select id="yAxisSelect"></select>
+                    </div>
+                    <div class="control-group">
+                        <label for="chartTypeSelect">Chart Type:</label>
+                        <select id="chartTypeSelect">
+                            <option value="scatter">Scatter Plot</option>
+                            <option value="line">Line Chart</option>
+                            <option value="bar">Bar Chart</option>
+                            <option value="box">Box Plot</option>
+                        </select>
+                    </div>
+                    <button id="updateChartBtn" class="btn btn-primary">Update Chart</button>
+                </div>
+            </section>
+
+            <section class="info-section" id="infoSection" style="display: none;">
+                <div class="data-info">
+                    <h3>Data Summary</h3>
+                    <div id="dataStats"></div>
+                </div>
+            </section>
+
+            <section class="visualization-section">
+                <div id="chart" class="chart-container"></div>
+            </section>
+
+            <section class="quick-views-section" id="quickViewsSection" style="display: none;">
+                <h3>Quick Visualizations</h3>
+                <div class="quick-view-buttons">
+                    <button class="quick-view-btn" data-view="overview">Overview</button>
+                    <button class="quick-view-btn" data-view="ph">pH Analysis</button>
+                    <button class="quick-view-btn" data-view="temperature">Temperature Analysis</button>
+                    <button class="quick-view-btn" data-view="dissolvedOxygen">Dissolved Oxygen</button>
+                    <button class="quick-view-btn" data-view="turbidity">Turbidity</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Water Quality Visualizer | Data-driven insights for water monitoring</p>
+        </footer>
+    </div>
+
+    <script src="js/csvParser.js"></script>
+    <script src="js/visualizer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

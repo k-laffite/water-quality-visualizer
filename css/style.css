@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #0066cc;
+    --secondary-color: #4da6ff;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --light-bg: #f8f9fa;
+    --dark-text: #212529;
+    --border-color: #dee2e6;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e3f2fd 0%, #f1f8e9 100%);
+    color: var(--dark-text);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+section {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+/* Upload Section */
+.upload-section {
+    padding: 40px;
+}
+
+.upload-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    padding: 60px 40px;
+    border: 3px dashed var(--primary-color);
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(77, 166, 255, 0.05) 100%);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-box:hover {
+    border-color: var(--secondary-color);
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.1) 0%, rgba(77, 166, 255, 0.1) 100%);
+}
+
+.upload-box.drag-over {
+    border-color: var(--success-color);
+    background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(40, 167, 69, 0.05) 100%);
+}
+
+#csvFile {
+    display: none;
+}
+
+.upload-box label {
+    cursor: pointer;
+    font-size: 1.3em;
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.upload-box:hover label {
+    color: var(--secondary-color);
+}
+
+.upload-box label span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0052a3;
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+.btn-secondary {
+    background: var(--border-color);
+    color: var(--dark-text);
+}
+
+.btn-secondary:hover {
+    background: #c6cad2;
+}
+
+/* Controls Section */
+.controls-section {
+    padding: 20px;
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    align-items: end;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.control-group label {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.95em;
+}
+
+.control-group select,
+.control-group input {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.95em;
+    transition: border-color 0.3s ease;
+}
+
+.control-group select:focus,
+.control-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+/* Info Section */
+.info-section {
+    background: linear-gradient(135deg, #e8f4f8 0%, #f0f8e8 100%);
+    border-left: 4px solid var(--primary-color);
+}
+
+.data-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+#dataStats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.stat-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.stat-item strong {
+    display: block;
+    color: var(--primary-color);
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.stat-item span {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+/* Visualization Section */
+.chart-container {
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 1.2em;
+}
+
+.chart-container.has-chart {
+    color: inherit;
+    font-size: 1em;
+}
+
+/* Quick Views Section */
+.quick-views-section {
+    padding: 20px;
+}
+
+.quick-views-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.quick-view-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.quick-view-btn {
+    padding: 12px 15px;
+    background: var(--light-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quick-view-btn:hover {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .upload-box {
+        padding: 40px 20px;
+    }
+
+    .controls {
+        grid-template-columns: 1fr;
+    }
+
+    #dataStats {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-view-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Loading and Error States */
+.error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid var(--danger-color);
+    margin: 10px 0;
+}
+
+.success {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid var(--success-color);
+    margin: 10px 0;
+}
+
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
