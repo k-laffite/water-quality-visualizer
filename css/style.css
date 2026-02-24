@@ -59,11 +59,13 @@ section {
     border-radius: 12px;
     padding: 25px;
     box-shadow: var(--shadow);
+    width: 100%;
 }
 
 /* Upload Section */
 .upload-section {
     padding: 40px;
+    width: 100%;
 }
 
 .upload-box {
@@ -146,6 +148,8 @@ section {
 /* Controls Section */
 .controls-section {
     padding: 20px;
+    width: 100%;
+    order: 3;
 }
 
 .controls {
@@ -187,6 +191,8 @@ section {
 .info-section {
     background: linear-gradient(135deg, #e8f4f8 0%, #f0f8e8 100%);
     border-left: 4px solid var(--primary-color);
+    width: 100%;
+    order: 2;
 }
 
 .data-info h3 {
@@ -221,6 +227,15 @@ section {
 }
 
 /* Visualization Section */
+.visualization-section {
+    width: 100%;
+    order: 4;
+    padding: 20px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
 .chart-container {
     width: 100%;
     min-height: 500px;
@@ -229,6 +244,7 @@ section {
     justify-content: center;
     color: #999;
     font-size: 1.2em;
+    flex-grow: 1;
 }
 
 .chart-container.has-chart {
@@ -239,6 +255,8 @@ section {
 /* Quick Views Section */
 .quick-views-section {
     padding: 20px;
+    width: 100%;
+    order: 5;
 }
 
 .quick-views-section h3 {
@@ -297,6 +315,14 @@ footer {
 
     .quick-view-buttons {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .visualization-section {
+        min-height: 400px;
+    }
+
+    .chart-container {
+        min-height: 350px;
     }
 }
 
